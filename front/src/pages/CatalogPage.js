@@ -1,11 +1,21 @@
 import GoodCard from '../components/GoodCard/GoodCard'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function CatalogPage() {
+    const [goods, setGoods] = useState([])
+    useEffect(()=>{
+        axios.get('http://127.0.0.1:8000/api/catalog/').then((response) => {
+            setGoods(response.data)
+            console.log(response.data)
+        })
+    }, [])
+
     return (
-        <>
-            <div style={{'margin': '10px'}}>
-                <GoodCard good_name={'Карандаш механический Pilot'} good_date={'01.12.2004'} good_price={142} good_photo={'https://img4.labirint.ru/rc/1c536a1679215455457025be87026aa3/363x561q80/books79/787592/cover.jpg?1659961518'}></GoodCard>
-            </div>
-        </>
+        <div style={{'margin': '10px'}}>
+            {goods?.map((good, i) => (
+                <GoodCard key={good.id} good_name={good.name} good_date={good.date_created} good_price={good.price_roubles} good_photo={good.image_url}></GoodCard>
+            ))}
+        </div>
     )
 }

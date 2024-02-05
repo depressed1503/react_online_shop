@@ -4,8 +4,9 @@ from django.contrib.auth.models import AbstractUser
 class Good(models.Model):
     name = models.CharField(max_length=255, default='Good Name')
     description = models.TextField(default='')
+    date_created = models.CharField(max_length=255, default='01.01.2024')
     price_roubles = models.FloatField()
-    image_url = models.ImageField(upload_to='goods_images')
+    image_url = models.CharField(max_length=1000, default='https://img4.labirint.ru/rc/1c536a1679215455457025be87026aa3/363x561q80/books79/787592/cover.jpg?1659961518')
     
 class CustomUser(AbstractUser):
     USERNAME_FIELD = 'email'

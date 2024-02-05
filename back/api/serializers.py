@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, Good
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
@@ -18,3 +18,9 @@ class CustomUserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class GoodSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Good
+        fields = '__all__'

@@ -10,3 +10,7 @@ class CustomUserCreateAPIView(generics.CreateAPIView):
     def post(self, request, *args, **kwargs):
         return super().post(request, *args, **kwargs)
 
+class GoodListAPIView(generics.ListAPIView):
+    queryset = Good.objects.all()
+    serializer_class = GoodSerializer
+    permission_classes = [permissions.AllowAny]
