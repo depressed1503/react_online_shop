@@ -2,4 +2,7 @@
     border-radius: 25px;
     background-color: rgb(0, 110, 230);
     color: white;
+    border: none;
+    font-size: 18px;
+    padding: 10px 20px;
 }

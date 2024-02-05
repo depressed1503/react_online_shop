@@ -1,8 +1,10 @@
 import './Headliner.css'
+import Button from '../Button/Button'
+import { useNavigate } from 'react-router-dom'
 
 export default function Headliner() {
+    const navigate = useNavigate()
     return (
-
         <div className='headliner__wrapper'>
             <div className='headliner'>
                 <h2>Лучшие канцтовары индустрии</h2>
@@ -11,7 +13,9 @@ export default function Headliner() {
                     Мы тщательно отбираем только те товары, которые соответствуют высоким стандартам, 
                     чтобы обеспечить вас надежными и стильными инструментами для творчества. 
                 </p>
+                <Button text={'В каталог'} onClick={() => {navigate('catalog/')}}/>
             </div>
+
         </div>
         
     )

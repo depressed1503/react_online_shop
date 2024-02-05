@@ -1,5 +1,6 @@
-export default function Button({onClick, text}) {
+import './Button.css'
+export default function Button({onClick, text, style}) {
     return (
-        <button onClick={() => {onClick()}} className='btn'>{text}</button>
+        <button onClick={() => {onClick?.()}} style={style} className='btn'>{text}</button>
     )
 }
