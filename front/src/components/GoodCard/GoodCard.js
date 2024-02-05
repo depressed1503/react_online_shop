@@ -1,5 +1,5 @@
 import './GoodCard.css'
-
+import Button from '../Button/Button'
 export default function GoodCard({good_name, good_date, good_price, good_photo}) {
     return (
         <div className='good_card'>
@@ -8,6 +8,7 @@ export default function GoodCard({good_name, good_date, good_price, good_photo})
                 <div className='good_card__info__price'>{good_price}₽</div>
                 {good_name}
                 <span className='good_card__info__date'>{good_date}</span>
+                <Button text={'В корзину'}></Button>
             </div>
         </div>
     )
