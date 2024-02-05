@@ -11,7 +11,7 @@ export default function LoginForm() {
     const navigate = useNavigate()
 
     const sendLoginRequest = () => {
-        axios.post('http://127.0.0.1:8000/api/login', {
+        axios.post('http://127.0.0.1:8000/api/auth/login/', {
             'email': login,
             'password': password,
         }).then((response) => {
