@@ -15,7 +15,7 @@ export default function LoginForm() {
             'username': login,
             'password': password,
         }).then((response) => {
-            if(response.status == 200) {
+            if(response.status === 200) {
                 navigate('/')
             }
         })
