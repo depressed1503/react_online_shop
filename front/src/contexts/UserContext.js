@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
   }
 
   return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
-};
+}
 
 export const useUserContext = () => {
   const context = useContext(UserContext)
@@ -19,4 +19,4 @@ export const useUserContext = () => {
     throw new Error('useUserContext must be used within a UserProvider')
   }
   return context
-};
+}

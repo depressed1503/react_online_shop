@@ -16,8 +16,8 @@ export default function RegistrationForm() {
             'password': password,
         }
         axios.post('http://127.0.0.1:8000/api/registration/', userData).then((response) => {
-            console.log(response.status)
-            if(response.status == 201) {
+            console.log(response)
+            if(response.status === 201) {
                 navigate('/')
             }
         })
