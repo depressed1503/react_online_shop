@@ -19,7 +19,7 @@ export default function LoginForm() {
         }).then((response) => {
             if(response.status === 200) {
                 navigate('/')
-                setUser({'username': login})
+                setUser({'username': login, 'token': response.data.token})
             }
         })
     }

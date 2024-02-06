@@ -4,6 +4,7 @@ from .serializers import *
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from rest_framework.authentication import TokenAuthentication
 
 class CustomUserCreateAPIView(generics.CreateAPIView):
     queryset = get_user_model().objects.all()
@@ -18,7 +19,8 @@ class GoodListAPIView(generics.ListAPIView):
     serializer_class = GoodSerializer
     queryset = Good.objects.all()
     pagination_class = PageNumberPagination
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())

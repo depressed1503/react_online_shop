@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'axios'
+import { useUserContext } from '../contexts/UserContext'
 
 const useServerGoods = (apiEndpoint, pageSize = 10) => {
+  const { user, setUser } = useUserContext()
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,9 +15,10 @@ const useServerGoods = (apiEndpoint, pageSize = 10) => {
         setLoading(true);
         setError(null);
 
-        // Загрузка данных с сервера по указанному эндпоинту и странице
+        console.log(user)
         const response = await axios.get(apiEndpoint, {
           params: { page, pageSize },
+          headers: {'Authorization': `Token ${user?.token}`}
         });
         
         const data = response.data.results;

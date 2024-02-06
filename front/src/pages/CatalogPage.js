@@ -15,7 +15,7 @@ export default function CatalogPage() {
                 {loading && <p>Загрузка...</p>}
                 {error && <p style={{ color: 'red' }}>Ошибка при загрузке...</p>}
                 {!loading && (
-                    <Button onClick={loadMore} text={'Загрузить больше'} style={{'font-size': '14px'}}>
+                    <Button onClick={loadMore} text={'Загрузить больше'} style={{'fontSize': '14px'}}>
                     Load More
                     </Button>
                 )}

@@ -13,7 +13,9 @@ export default function Headliner() {
                     Мы тщательно отбираем только те товары, которые соответствуют высоким стандартам, 
                     чтобы обеспечить вас надежными и стильными инструментами для творчества. 
                 </p>
-                <Button text={'В каталог'} onClick={() => {navigate('catalog/')}}/>
+                <Button text={'В каталог'} onClick={() => {navigate('catalog/')}}/><br></br>
+                <a href='registration/'>Регистрация</a><br></br>
+                <a href='login/'>Вход</a>
             </div>
 
         </div>
